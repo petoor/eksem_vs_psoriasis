@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="jumbo">
+	<h2>Upload Skin Image</h2>
+	<form method=post enctype=multipart/form-data>
+	<input type=file name=file>
+	<input type=submit value=Upload>
+	</form>
+  </div>
+
+<body>
+	<div, id="upload_image">
+	  	{% if filename %}
+	  	<center>
+	  	<div>
+	  		Prediction: <b>{{prediction}} - Certainty: {{certainty}} %.  </b>
+	  	</div>
+    	<div style="max-width: 1000px; border:1px black solid">
+        	<div style="height: auto; border:1px black solid">
+	  		<p style="text-align:center;"><b><big>Area of interest</big></b></p>
+	  		<img src="{{ url_for('send_file', filename=filename_zoom) }}" 
+	  		style="width: auto; max-width: 400px; height: auto; max-height: 1000px">
+    	   </div>
+     	   <div style="height: auto; border:1px black solid">
+			<p style="text-align:center;"><b><big>Original image</big></b></p>
+			<p>{{bla}}</p>
+			<img src="{{ url_for('send_file', filename=filename) }}"  
+			style="width: auto; max-width: 400px; height: auto; max-height: 1000px">
+   	 	   </div
+  		 </div>
+  		</center>
+
+		{% else %}
+		<center>
+	  	<h1>No image</h1>
+	  	</center>
+		{% endif %}
+	</div>
+</body> 
+{% endblock %}
